@@ -4,12 +4,10 @@ export const TypewriterText = ({ text, speed = 30, onComplete }) => {
   const [displayedText, setDisplayedText] = useState('');
 
   useEffect(() => {
-    // Reseta o texto imediatamente ao mudar a propriedade "text"
     setDisplayedText('');
     let i = 0;
 
     const interval = setInterval(() => {
-      // Usa a string 'text' original para pegar o caractere correto pelo índice 'i'
       setDisplayedText(text.slice(0, i + 1));
       i++;
 
@@ -19,7 +17,7 @@ export const TypewriterText = ({ text, speed = 30, onComplete }) => {
       }
     }, speed);
 
-    // Limpa o intervalo caso o efeito seja reexecutado (evita duplicidade no StrictMode)
+  
     return () => clearInterval(interval);
   }, [text, speed]);
 

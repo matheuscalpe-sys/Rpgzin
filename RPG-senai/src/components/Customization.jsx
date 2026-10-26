@@ -3,8 +3,6 @@ import { Code } from 'lucide-react';
 import { CLASSES } from '../data/gameData';
 import { TermButton } from './ui/TermButton';
 
-// Cada linguagem tem sua cor. O Tailwind precisa ver as classes completas,
-// por isso elas ficam escritas por extenso aqui.
 const ACCENT = {
   WARRIOR: { border: 'border-orange-400', title: 'text-orange-400', bg: 'bg-orange-950/40', glow: 'shadow-[0_0_15px_rgba(251,146,60,0.35)]' },
   MAGE: { border: 'border-yellow-300', title: 'text-yellow-300', bg: 'bg-yellow-950/40', glow: 'shadow-[0_0_15px_rgba(253,224,71,0.35)]' },
@@ -61,7 +59,6 @@ export const Customization = ({ player, setPlayer, onStartGame }) => {
                   key={key}
                   type="button"
                   aria-pressed={isSelected}
-                  // Atenção: name vem depois do ...c para não apagar o nome digitado
                   onClick={() => setPlayer({ ...player, ...c, name: player.name, classKey: key })}
                   className={`p-4 border text-left transition-all duration-200 cursor-pointer rounded ${
                     isSelected

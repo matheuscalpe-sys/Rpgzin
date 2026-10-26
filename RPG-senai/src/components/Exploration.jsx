@@ -6,9 +6,6 @@ import { CLASSES, DICAS } from '../data/gameData';
 
 export const Exploration = ({ player, storyText, typingComplete, setTypingComplete, onExplore, onEngageCombat }) => {
   const lang = player.classKey ? CLASSES[player.classKey] : null;
-
-  // Uma dica nova a cada cena (muda sempre que o texto da história muda)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const dica = useMemo(() => DICAS[Math.floor(Math.random() * DICAS.length)], [storyText]);
 
   return (

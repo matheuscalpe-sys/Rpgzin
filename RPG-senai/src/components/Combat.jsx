@@ -3,14 +3,14 @@ import { Zap, Coffee } from 'lucide-react';
 import { TermButton } from './ui/TermButton';
 import { ProgressBar } from './ui/ProgressBar';
 
-// Cada linguagem ataca de um jeito (são só textos, a lógica do dano não muda)
+
 const ATAQUES = {
   WARRIOR: 'LANÇAR <div>',
   MAGE: 'CHAMAR funcao()',
   ROGUE: 'APLICAR estilo'
 };
 
-// Define a cor de cada linha do registro de batalha
+
 const corDoLog = (log) => {
   if (/eliminado|derrotado|corrigido/i.test(log)) return 'text-emerald-300 font-bold';
   if (/atacou você/i.test(log)) return 'text-red-400';
@@ -39,7 +39,10 @@ export const Combat = ({ player, enemy, combatLog, logEndRef, onAttack, onHeal }
 
         <div className="text-right">
           <h3 className="font-bold text-lg mb-2 text-red-400">{enemy?.icon} {enemy?.name}</h3>
-          <ProgressBar current={enemy?.hp || 0} max={enemy?.maxHp || 1} label="VIDA DO BUG" colorClass="bg-red-600" />
+          <ProgressBar current={enemy?.hp || 0}
+          max={enemy?.maxHp || 1}
+          label="VIDA DO BUG" 
+          colorClass="bg-red-600" />
           <div className="flex gap-4 justify-end text-xs opacity-70 mt-2 text-red-300">
             <span>ataque: {enemy?.attack}</span>
             <span>defesa: {enemy?.defense}</span>

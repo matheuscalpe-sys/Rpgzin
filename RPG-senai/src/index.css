@@ -1,8 +1,8 @@
 :root {
     /* Os nomes das variáveis foram mantidos (--term-*) para não quebrar
        os outros componentes. Só os valores mudaram para o tema "editor de código". */
-    --term-green: #4fc1ff;       /* cor principal (azul claro, estilo variável) */
-    --term-green-dim: #1f4d6b;   /* bordas e fundos suaves */
+    --term-green: #db5d74;       /* cor principal (azul claro, estilo variável) */
+    --term-green-dim: #b1b1b1;   /* bordas e fundos suaves */
     --term-bg: #0d1117;          /* fundo escuro do editor */
     --term-red: #f14c4c;         /* erro / bug */
 
@@ -14,8 +14,8 @@
     --syn-kw: #c586c0;           /* palavras-chave: const, function */
     --syn-var: #9cdcfe;          /* nomes de variáveis */
     --syn-str: #ce9178;          /* textos entre aspas */
-    --syn-num: #b5cea8;          /* números */
-    --syn-com: #6a9955;          /* comentários */
+    --syn-num: #4bb313;          /* números */
+    --syn-com: #eeeb3d;          /* comentários */
 }
 
 * {
@@ -79,7 +79,7 @@ h1, h2, h3 {
 
 .border-box {
     border: 1px solid var(--term-green-dim);
-    background: rgba(79, 193, 255, 0.06);
+    background: rgba(81, 193, 253, 0.06);
     border-radius: 6px;
     padding: 1.5rem;
 }
