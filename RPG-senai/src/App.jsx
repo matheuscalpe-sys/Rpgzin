@@ -24,7 +24,7 @@ export default function TerminalRPG() {
     }
   }, [combatLog]);
 
-  // --- ACTIONS ---
+
 
   const startGame = () => {
     if (!player.name || !player.classKey) return;

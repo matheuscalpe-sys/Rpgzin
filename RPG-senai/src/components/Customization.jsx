@@ -37,7 +37,7 @@ export const Customization = ({ player, setPlayer, onStartGame }) => {
           <input
             id="nome-heroi"
             type="text"
-            value={nomeHeroi}
+         
             onChange={(e) => setPlayer({ ...player, name: e.target.value })}
             className="w-full bg-black border-b-2 border-sky-500 text-sky-300 focus:outline-none focus:border-sky-300 font-mono text-xl py-2 placeholder-slate-600 tracking-wider transition-colors"
             placeholder="Digite seu nome"

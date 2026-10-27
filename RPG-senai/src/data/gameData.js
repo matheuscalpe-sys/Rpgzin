@@ -1,6 +1,3 @@
-// CLASSES: no Code Quest, cada classe é uma linguagem da web.
-// Dica para a apresentação: as chaves (WARRIOR, MAGE, ROGUE) foram mantidas
-// para não quebrar os outros componentes. Só os textos mudaram.
 export const CLASSES = {
   WARRIOR: {
     name: 'HTML',
@@ -53,7 +50,6 @@ export const SCENARIOS = [
   'No console do navegador, mensagens vermelhas aparecem uma atrás da outra. Alguém esqueceu de testar o código antes de publicar.'
 ];
 
-// DICAS (novo, opcional): frases curtas para mostrar no combate ou na tela final.
 export const DICAS = [
   'HTML é o esqueleto da página, CSS é a roupa e JavaScript é o cérebro.',
   'Uma variável é uma caixinha com nome que guarda uma informação.',
