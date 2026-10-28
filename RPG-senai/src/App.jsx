@@ -4,13 +4,17 @@ import { Customization } from './components/Customization';
 import { Exploration } from './components/Exploration';
 import { Combat } from './components/Combat';
 import { GameOver } from './components/GameOver';
-
+import { Victory } from './components/Victory';
 
 export default function TerminalRPG() {
   const [gameState, setGameState] = useState('CUSTOMIZATION');
   
   const [player, setPlayer] = useState({ name: '', classKey: null, ...CLASSES.WARRIOR });
   const [enemy, setEnemy] = useState(null);
+  
+  // Controle de progresso e metas de bugs
+  const [bugsDefeated, setBugsDefeated] = useState(0);
+  const [targetBugs, setTargetBugs] = useState(3); // Primeira meta = 3 bugs
   
   const [storyText, setStoryText] = useState("RPG - Em site");
   const [combatLog, setCombatLog] = useState([]);
@@ -23,8 +27,6 @@ export default function TerminalRPG() {
       logEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [combatLog]);
-
-
 
   const startGame = () => {
     if (!player.name || !player.classKey) return;
@@ -59,10 +61,19 @@ export default function TerminalRPG() {
       newLogs.push(`> ${enemy.name} foi eliminado.`);
       setCombatLog(prev => [...prev, ...newLogs]);
       setEnemy({ ...enemy, hp: 0 });
+
+      const nextBugs = bugsDefeated + 1;
+      setBugsDefeated(nextBugs);
+
       setTimeout(() => {
-        setGameState('EXPLORATION');
-        setStoryText(`A ameaça foi neutralizada. O caminho está livre por enquanto.`);
-        setTypingComplete(false);
+        // Verifica se atingiu a meta atual (3 na primeira vez, +10 no modo infinito)
+        if (nextBugs >= targetBugs) {
+          setGameState('VICTORY');
+        } else {
+          setGameState('EXPLORATION');
+          setStoryText(`A ameaça foi neutralizada. Bugs eliminados: ${nextBugs}/${targetBugs}. O caminho está livre por enquanto.`);
+          setTypingComplete(false);
+        }
       }, 2000);
       return;
     }
@@ -107,6 +118,19 @@ export default function TerminalRPG() {
     }
   };
 
+ 
+  const handleContinue = () => {
+    const nextGoal = bugsDefeated + 10;
+    setTargetBugs(nextGoal);
+    setGameState('EXPLORATION');
+    setStoryText(`Novos Bugs encontrados! Nova meta: Derrote mais 10 bugs (Total: ${bugsDefeated}/${nextGoal}).`);
+    setTypingComplete(false);
+  };
+
+  const handleRestart = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="min-h-screen bg-black text-green-500 font-mono p-4 sm:p-8 flex flex-col items-center relative overflow-hidden">
       {/* Scanline CRT Effect Overlay */}
@@ -143,6 +167,14 @@ export default function TerminalRPG() {
             logEndRef={logEndRef} 
             onAttack={attack} 
             onHeal={heal} 
+          />
+        )}
+
+        {gameState === 'VICTORY' && (
+          <Victory 
+            player={player} 
+            onContinue={handleContinue} 
+            onRestart={handleRestart} 
           />
         )}
         

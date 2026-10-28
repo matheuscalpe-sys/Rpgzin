@@ -24,31 +24,34 @@ export const Combat = ({ player, enemy, combatLog, logEndRef, onAttack, onHeal }
     <div className="w-full max-w-3xl mx-auto flex flex-col gap-6">
       {/* Placar: você x bug */}
       <div className="grid grid-cols-2 gap-8 border border-sky-900 p-4 bg-black relative">
+
+        <div>
+          <h3 className="">{player.name}</h3>
+          <ProgressBar current= {player.hp} max= {player.maxHp} label="VIDA " colorClass="bg-emerald-400" />
+          <div className="flex gap-4 text-xs opacity-70 mt-2">
+            <span>ataque: {player.attack} </span>
+            <span>defesa: {player.defense} </span>
+          </div>
+        </div>
+        <br />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sky-900 opacity-30 font-bold text-4xl italic" aria-hidden="true">
           VS
         </div>
-
-        <div>
-          <h3 className="font-bold text-lg mb-2">{player.name}</h3>
-          <ProgressBar current={player.hp} max={player.maxHp} label="VIDA (HP)" colorClass="bg-emerald-400" />
-          <div className="flex gap-4 text-xs opacity-70 mt-2">
-            <span>ataque: {player.attack}</span>
-            <span>defesa: {player.defense}</span>
-          </div>
-        </div>
+        <br />
 
         <div className="text-right">
-          <h3 className="font-bold text-lg mb-2 text-red-400">{enemy?.icon} {enemy?.name}</h3>
+          <h3 className="">{enemy?.icon} {enemy?.name}</h3>
           <ProgressBar current={enemy?.hp || 0}
           max={enemy?.maxHp || 1}
-          label="VIDA DO BUG" 
+          label="VIDA DO BUG " 
           colorClass="bg-red-600" />
-          <div className="flex gap-4 justify-end text-xs opacity-70 mt-2 text-red-300">
-            <span>ataque: {enemy?.attack}</span>
-            <span>defesa: {enemy?.defense}</span>
+          <div className="">
+            <span>ataque: {enemy?.attack} </span>
+            <span>defesa: {enemy?.defense} </span>
           </div>
         </div>
       </div>
+      <br />
 
       {/* Explicação do bug em linguagem simples */}
       {enemy?.hint && (
