@@ -59,6 +59,14 @@ export default function TerminalRPG() {
 
     if (newEnemyHp <= 0) {
       newLogs.push(`> ${enemy.name} foi eliminado.`);
+      
+      // --- INÍCIO DA ADIÇÃO (CHANCE DE 50% DE CAFÉ) ---
+      if (Math.random() < 0.3) { 
+        newLogs.push(`> ☕ Sorte! Você encontrou um café nos restos do código!`);
+        setPlayer(prev => ({ ...prev, potions: prev.potions + 1 }));
+      }
+      // --- FIM DA ADIÇÃO ---
+
       setCombatLog(prev => [...prev, ...newLogs]);
       setEnemy({ ...enemy, hp: 0 });
 
