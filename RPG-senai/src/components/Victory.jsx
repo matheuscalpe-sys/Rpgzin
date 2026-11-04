@@ -50,7 +50,7 @@ export const Victory = ({ player, onContinue, onRestart }) => {
           className="border-emerald-600 text-emerald-400 hover:bg-emerald-600 hover:text-black"
         >
           <span className="flex items-center justify-center gap-2 font-bold">
-            CONTINUAR MODO INFINITO <ArrowRight size={18} />
+            CONTINUAR CAÇANDO BUGS <ArrowRight size={18} />
           </span>
         </TermButton>
 

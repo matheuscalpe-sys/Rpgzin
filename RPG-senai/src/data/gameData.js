@@ -39,7 +39,28 @@ export const ENEMIES = [
     name: 'Erro 404', icon: '🚫',
     hp: 55, maxHp: 55, attack: 18, defense: 4,
     hint: 'Página não encontrada. O endereço existe no mapa, mas não tem ninguém morando lá.'
-  }
+  },
+  { name: 'Conflito de Merge', icon: '⚔️',
+   hp: 60, maxHp: 60, attack: 20, defense: 10,
+   hint: 'Dois desenvolvedores tentaram alterar a mesma linha de código ao mesmo tempo. É como dois autores disputando a mesma página.'
+   },
+   { name: 'Stack Overflow', icon: '📚',
+    hp: 80, maxHp: 80, attack: 12, defense: 6, 
+    hint: 'A memória estourou de tantas tarefas acumuladas sem resolução. Como empilhar pratos até a torre perder o equilíbrio e desabar.'
+    },
+    { name: 'Git sem commit', icon: '🐈‍⬛',
+    hp: 90, maxHp: 90, attack: 22, defense: 6, 
+    hint: 'Você alterou o código, mas não empacotou as mudanças. Se o computador reiniciar agora, todo o seu progresso vai desaparecer no vazio.'
+    },
+    { name: 'Race Condition', icon: '🏃',
+      hp: 45, maxHp: 45, attack: 13, defense: 3,
+      hint: 'Duas tarefas correndo para mudar o mesmo dado ao mesmo tempo. O resultado depende de quem chegar primeiro, gerando o caos.'
+     },
+     { name: 'Erro 500 (Internal Server Error)', icon: '💥', 
+      hp: 75, maxHp: 75, attack: 17, defense: 8, 
+      hint: 'O servidor pegou fogo por dentro, mas não sabe dizer o motivo. É o equivalente a responder "deu ruim" sem dar nenhuma explicação.'
+
+      }
 ];
 
 // SCENARIOS: lugares que um desenvolvedor visita no dia a dia.
